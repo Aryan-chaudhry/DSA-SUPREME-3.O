@@ -30,6 +30,46 @@ int main(){
         int value = it.second;
         cout << "Key : " << key << ", " << "Value : " << value << endl;
     }
+    cout << endl;
+    // find
+    if(table.find(2) != table.end()){
+        // found
+        // now access
+        int value = table[2];
+        cout << "Found and Value is : " << value << endl;
 
+    }
+    else{
+        // not found
+        cout << "Not found" << endl;
+    }
+    cout << endl;
+
+    // deletion
+    table.erase(2);
+    cout << "After erasing " << endl;
+
+    for(auto it:table){
+        int key = it.first;
+        int value = it.second;
+        cout << "Key : " << key << ", " << "Value : " << value << endl;
+    }
+    cout << endl;
+
+    if(table.find(2) != table.end()){
+        // found
+        // now access
+        int value = table[2];
+        cout << "Value is : " << value << endl;
+
+    }
+    else{
+        // not found
+        cout << "Not found" << endl;
+    }
+    cout << endl;
+
+
+    
     return 0;
 }

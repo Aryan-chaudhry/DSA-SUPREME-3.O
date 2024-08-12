@@ -1,19 +1,34 @@
 #include<iostream>
-#include<unordered_map>
+#include<algorithm>
 using namespace std;
 
+
 int main(){
-    string s = "egg", t = "add";
+ 
+ int arr[] = {1,2,0,2,1,0};
+ int zeroCount=0, oneCount = 0, twoCount = 0;
 
-    unordered_map<char, char>mp;
+ for(int i=0; i<6; i++){
+  if(arr[i] == 0){
+    zeroCount++;
+  }
+  else if(arr[i] == 1){
+    oneCount++;
+  }
+  else{
+    twoCount++;
+  }
+ }
 
-    // see mapping
-    for(int i=0; i<s.size(); i++){
-        mp[s[i]] = t[i];
-    }
-    // traverse
-    for(auto i:mp){
-        cout << i.first << " " << i.second << endl;
-    }
+ 
+
+fill(arr,arr+zeroCount, 0);
+fill(arr+oneCount, (arr+(zeroCount+oneCount)), 1);
+fill(arr+zeroCount+oneCount ,arr+zeroCount+oneCount+twoCount, 2);
+
+for(int i=0; i<6; i++){
+  cout << arr[i] << " ";
+}
+  
 
 }

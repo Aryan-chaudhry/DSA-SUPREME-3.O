@@ -9,7 +9,7 @@ void rotateArray(int arr[] , int size , int d){
         return;
      }
 
-     // step 1 copy last n elements ehich have to be shift
+     // step 1 copy last n elements which have to be shift
      int temp[100];
      int index = 0;
 

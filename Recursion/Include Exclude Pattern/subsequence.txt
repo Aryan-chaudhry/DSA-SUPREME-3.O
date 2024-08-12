@@ -1,0 +1,14 @@
+Racecar
+Race --> substring
+ace --> substring
+....................................................................
+subsequence 
+--> Jaruri nahi hain ke continues hi ho but order maintain 
+rehena chaheye 
+Love
+Loe --> subsequence
+
+ex abc
+subsequence --> a,b,c,ab,bc,ac,abc,"";
+no of subsequnece == 2^(length of string);
+......................................................................

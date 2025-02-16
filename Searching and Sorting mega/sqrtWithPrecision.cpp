@@ -1,38 +1,53 @@
-// search space Pattern
-/* 
-we Apply search space pattern when we get
-out answer in a space which is known as answer space that's why we 
-apply binary search in that space   so called search space pattern 
-*/
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
-int sqrt(int n){
-    int st = 0;
-    int end = n;
-    int mid = st + ((end - st)>>2);
-    int ans = -1;
+int findSqrt(int no){
     
+    int ans = 0;
+
+    int st = 0;
+    int end = no;
+    int mid = st + (end - st)/2;
+
     while(st <= end){
-        if(mid*mid == n){
-            return mid;
-        }
-        else if(mid * mid < n){
-            // store and compute 
+        
+        if(mid*mid <= no){
             ans = mid;
             st = mid + 1;
         }
         else{
             end = mid - 1;
         }
-        mid = st + ((end - st)>>2);
+        mid = st + (end - st)/2;
     }
-return ans;
+    return ans;
+}
+
+double findPrecision(int no){
+
+    double sqrt = findSqrt(no);
+    int precision = 11;
+    double step = 0.1;
+
+    while(precision--){
+        double j = sqrt;
+        while(j*j <= no){
+            sqrt = j;
+            j += step;
+        }
+        step /= 10;
+    }
+    return sqrt;
 }
 
 int main(){
-    int no = 4;
-    int ans = sqrt(no);
-    cout << ans << endl;
+
+    long long int no;
+    cout << "Enter Number : ";
+    cin >> no;
+
+    double Ans = findPrecision(no);
+    cout << "sqrt of " << no << " is : " << setprecision(11) << Ans << endl;
+
     return 0;
 }

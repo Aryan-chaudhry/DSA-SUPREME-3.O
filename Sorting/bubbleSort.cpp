@@ -17,8 +17,8 @@ void bubbleSort(int arr[], int size){
 
 int main(){
     
-    int size = 5;
-    int arr[size] = {5,4,3,2,1};
+    int size = 6;
+    int arr[size] = {2, 0, 2, 1, 1, 0};
 
     bubbleSort(arr, size);
 

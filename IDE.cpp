@@ -1,34 +1,32 @@
-#include<iostream>
-#include<algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
-
-int main(){
- 
- int arr[] = {1,2,0,2,1,0};
- int zeroCount=0, oneCount = 0, twoCount = 0;
-
- for(int i=0; i<6; i++){
-  if(arr[i] == 0){
-    zeroCount++;
-  }
-  else if(arr[i] == 1){
-    oneCount++;
-  }
-  else{
-    twoCount++;
-  }
- }
-
- 
-
-fill(arr,arr+zeroCount, 0);
-fill(arr+oneCount, (arr+(zeroCount+oneCount)), 1);
-fill(arr+zeroCount+oneCount ,arr+zeroCount+oneCount+twoCount, 2);
-
-for(int i=0; i<6; i++){
-  cout << arr[i] << " ";
+bool isValidIP(string ip) {
+    vector<string> parts;
+    stringstream ss(ip);
+    string token;
+    
+    while (getline(ss, token, '.')) {
+        parts.push_back(token);
+    }
+    
+    if (parts.size() != 4) return false;
+    
+    for (string part : parts) {
+        if (part.empty() || part.size() > 3) return false;
+        if (part[0] == '0' && part.size() > 1) return false;
+        if (!all_of(part.begin(), part.end(), ::isdigit)) return false;
+        
+        int num = stoi(part);
+        if (num < 0 || num > 255) return false;
+    }
+    
+    return true;
 }
-  
 
+int main() {
+    string ip;
+    cin >> ip;
+    cout << (isValidIP(ip) ? "Valid" : "Invalid") << endl;
+    return 0;
 }

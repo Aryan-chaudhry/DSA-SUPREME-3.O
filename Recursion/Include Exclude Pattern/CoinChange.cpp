@@ -26,7 +26,7 @@ int solve(vector<int>&coin, int amount){
 int main(){
 
     vector<int>coin = {1,2,5};
-    int amount = -50;
+    int amount = 11;
     int ans = solve(coin, amount);
     
     if(ans == INT16_MAX){

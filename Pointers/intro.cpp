@@ -3,25 +3,19 @@ using namespace std;
 
 int main(){
 
-    // int a = 5;
-    // int* ptr = &a;
-    // cout << sizeof(ptr) << endl;
+    int a = 5;
+    cout << "a : " << a << endl;
+    cout << "Adress of a : " << &a << endl;
 
-    // char ch = 'a';
-    // char* ptr2 = &ch;
-    // cout << sizeof(ptr2) << endl;
+    int *ptr = &a;
+    cout << "ptr : " << ptr << endl;
+    // value store at that address
+    cout << *ptr << endl;   //  *x  --> dereferece opertaor
 
-    // long l = 1040;
-    // long* ptr3 = &l;
-    // cout << sizeof(ptr3) << endl;
 
-    // cout << a << endl; // 5
-    // cout << &a << endl; // address of a 
-    // cout << ptr << endl; // address of a
-    // cout << &ptr << endl; // address of ptr
-    // cout << *ptr << endl;
+    cout << sizeof(ptr) << endl;
 
-    int *ptr;
-    cout << *ptr << endl;
-    
+    cout << "ptr : " << ptr << endl;
+    cout << "ptr : " << ptr + 1 << endl;
+   
 }

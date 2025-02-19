@@ -10,7 +10,7 @@ void quicksort(int arr[], int st, int end){
     // processing
     int i = st - 1;
     int j = st;
-    int pivot = end;
+    int pivot = end;    
 
     while(j < pivot){
         if(arr[j] < arr[pivot]){

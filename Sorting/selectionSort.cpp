@@ -23,7 +23,7 @@ void selectionSort(int arr[], int size){
 
 int main(){
     int size = 5;
-    int arr[] = {10,30,25,32,20};
+    int arr[] = {4,1,3,7,9};
 
     selectionSort(arr, size);
 

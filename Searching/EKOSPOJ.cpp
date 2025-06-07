@@ -14,7 +14,7 @@ long long int mid){
     return (sum >= requirements) ;
 }
 
-long long int minWood(vector<long long int>&trees, long long int requirements){
+long long int minWood(vector<long long int>&trees, long long int requirements){ 
 
     long long int st = 0;
     long long int end = *max_element(trees.begin(), trees.end());

@@ -30,10 +30,10 @@ Node* buildTree(){
         return NULL;
     }
     else{
-        cout << "Enter the value of node at left of : " << data << endl;
+        cout << "Enter the value of node at left of : " << root -> val << endl;
         root -> left = buildTree();
 
-        cout << "Enter the value of node at right of : " << data << endl;
+        cout << "Enter the value of node at right of : " << root -> val  << endl;
         root -> right = buildTree();
     }
     return root;

@@ -24,7 +24,7 @@ int main(){
     }
     cout << endl;
 
-    // another syatax use for each loop
+    // another syntax use for each loop
     for(auto it:table){
         int key = it.first;
         int value = it.second;

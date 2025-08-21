@@ -84,6 +84,10 @@ class heap{
         cout << endl;
     }
 
+    void buildheap(int arr[], int n){
+
+    }
+
     
 };
 
@@ -100,4 +104,6 @@ int main(){
     int answer = h.deletion();
     cout << "Deleted value is : " << answer << endl;  
     h.printHeap();
+
+ 
 }

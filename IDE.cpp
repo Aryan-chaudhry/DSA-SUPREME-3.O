@@ -1,69 +1,88 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+int Recursion(int n){
+    // base case
+    if(n == 0 || n == 1) return n;
 
-// implement heap
-class Heap{
-    public:
+    return Recursion(n-1) + Recursion(n-2); 
 
-    int *arr;
-    int capacity;
-    int size; // just act like an index --> 1 based indexng followed here
+    // Time Complexity  O(2^n)
+    // space complexity O(n);
+}
 
-    Heap(int capacity){
-        this -> capacity = capacity;
-        arr = new int[capacity];
-        this -> size = 0;
+int memoisation(int n, vector<int>&dp){
+    // base case
+    if(n == 0 || n == 1) return n;
+
+    // if answer already exist than return the answer no need tp calculate again
+    if(dp[n] != -1){
+        return dp[n];
     }
 
-    void insert(int val){
-        // check karlo ki heap overflow to nahi hai
-        if(size == capacity){
-            cout << "overFlow!" << endl;
-        }
-        // step 1 -->  follow 1 based indexing here
-        size++; // 0 --> 1
-        // fetch index
-        int index = size;
+    // lets store the answer in dp
+    dp[n] = memoisation(n-1,dp) + memoisation(n-2,dp);
+    return dp[n];
 
-        // step 2 -->  insert value at this index in array
-        arr[index] = val;
+    // Time Complexity O(n);
+    // space complexity O(n)
+}
 
-        // step 3 --> perform heapification
-        while(index > 1){
-            int parent = index/2;
-            if(arr[index] > arr[parent]){
-                swap(arr[index],arr[parent]);
-                index = parent;
-            }
-            else{
-                break;
-            }
-        }
+int bottomUp(int n){
+    // create dp array
+    vector<int>dp(n+1, -1);
+
+    // analyse base case in term of dp array
+    dp[0] = 0;
+    dp[1] = 1;
+
+    // org --> n --> 0
+    // in iterative --> 0 --> n, 0,1 case are handle in base case itself
+
+    for(int i=2; i<=n; i++){
+        dp[i] = dp[i-1] + dp[i-2];
     }
 
-    void print(){
-        for(int i=1; i<=size; i++){
-            cout << arr[i] << " ";
-        }
+    return dp[n]; // answer hamesah vahi hoga jo recursionb me pass kiya hai
+
+    // time compexity  --> O(n)
+    // space compecity --> O(n);
+
+}
+
+int spaceOptimization(int n){
+    if(n == 0 || n == 1) return n;
+
+    int prev = 0;
+    int curr = 1;
+
+    for(int i=2; i<=n; i++){
+        int ans = prev + curr;
+        prev = curr;
+        curr = ans;
     }
-};
+    return curr;
+
+    // time complexity  O(n)
+    // space complexity O(1)
+}
 
 int main(){
-    Heap h(5);
+    int n;
+    cout << "Enter n : ";
+    cin >> n;
 
-    h.insert(10);
-    h.print();
+    // int ans = Recursion(n);
+    // cout << ans << endl;
 
-    cout << endl;
+    // vector<int>dp(n+1, -1);
+    // int ans = memoisation(n, dp);
+    // cout << ans << endl;
 
-    h.insert(20);
-    h.print();
+    // int ans = bottomUp(n);
+    // cout << ans << endl;
 
-    cout << endl;
-
-    h.insert(40);
-    h.print();
-
+    int ans = spaceOptimization(n);
+    cout << ans << endl;
 
 }

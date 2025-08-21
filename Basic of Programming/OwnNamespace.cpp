@@ -17,9 +17,11 @@ namespace Family{
 
 }
 
+using namespace Family;
+
 int main(){
 
-  Family::Introduce();
+ Introduce();
     
     
 }

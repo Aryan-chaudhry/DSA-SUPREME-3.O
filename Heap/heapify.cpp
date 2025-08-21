@@ -129,21 +129,21 @@ void buildHeap(int arr[], int n){
 int main(){
     cout << "hi";
 
-    int arr[] = {-1, 5, 10, 15, 20, 15, 7, 9};
+    int arr[] = {-1, 10,1,3,5,30,20};
 
-    buildHeap(arr, 7);
+    buildHeap(arr, 8);
 
     cout << "Printing heap : " << endl;
-    for(int i=1; i<=7; i++){
+    for(int i=1; i<=8; i++){
         cout << arr[i] << " ";
     }
 
-    heapsort(arr, 7);
+    // heapsort(arr, 7);
 
-    cout << "Printing heap : " << endl;
-    for(int i=1; i<=7; i++){
-        cout << arr[i] << " ";
-    }
+    // cout << "Printing heap : " << endl;
+    // for(int i=1; i<=7; i++){
+    //     cout << arr[i] << " ";
+    // }
 
     // heap h(20);
 
